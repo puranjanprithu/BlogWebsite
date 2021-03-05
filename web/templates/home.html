@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block home %}
+Information
+{% endblock %}
+{% block body %}
+<h3><a href="http://127.0.0.1:5000" style="justify-content: center;">Forms Page</a></h3>
+<!-- div letting user input a blog -->
+<div id="newBlog" class="container-fluid padding">
+	<div class="row welcome text-center d-grid gap-2">
+		<div class="col-12">
+			<h1 class="display-4">Create New Blog</h1>
+		</div>
+		
+	</div>
+</div>
+<div class="blogs" >
+      <form action="/home" method="POST">
+    <div class="container-fluid shadow  p-3 mb-5 bg-body rounded  ">
+      <div class="row text-left bg-info m-2">
+        <div class="col-md-6 col-lg-5 ">
+          
+          <div class="input-group mb-3 pt-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Blog Title : </span>
+            <input type="text" class="form-control" name="bTitle"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+
+
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Author Name :</span>
+            <input type="text" class="form-control" name="bAuthor" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+      
+      
+          
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Category :   </label>
+            <select class="form-select" name="bCategory" id="inputGroupSelect01">
+              <option selected >...</option>
+              <option value="1">Health</option>
+              <option value="2">Education</option>
+              <option value="3">Food</option>
+              <option value="4">Music</option>
+              <option value="5">Lifestyle</option>
+              <option value="6">Fitness</option>
+            </select>
+          </div>
+
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Image Link : </span>
+            <input type="text" class="form-control" name=bImage aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+      
+          
+        </div>
+        <div class="col-md-6 col-lg-7 p-3">
+          
+          <div class="input-group area" style="height: 200px">
+            
+            <span class="input-group-text">Blog Text</span>
+            <textarea class="form-control " name="bText" aria-label="With textarea"></textarea>
+          </div>
+          
+      </div>
+    </div>
+    <div class="container-fluid ">
+      <div class="row text-center mr-0 " >
+        <div class=" pt-2 " style="float: right;">
+          <button type="submit" class="btn btn-success">Save Draft</button>
+          <button type="reset" class="btn btn-primary" >Reset</button>
+        </div>
+      </div>
+    </div>
+    </div>
+    <hr>
+ </form>
+</div>
+
+
+<!-- My Drafted Blogs-->
+<div id="newBlog" class="container-fluid padding">
+	<div class="row welcome text-center d-grid gap-2">
+		<div class="col-12">
+			<h1 class="display-4">Drafted Blogs</h1>
+		</div>
+	</div>
+</div>
+<div class="container pt-4 text-dark">
+  <div class="row">
+    <div class="col-xl-3 col-lg-4 col-md-6 blogs">
+        <div class="card w-1000 shadow p-3 mb-5 bg-white rounded">
+              <img class="card-img-top"  src="{{url_for('static',filename='images/Spiritual.jpg')}}" >
+              <div class="card-body">
+                 <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-warning">Edit </a>
+                  <a href="#" class="btn btn-primary">Preview </a>
+                  <a href="#" class="btn btn-success">Publish </a>
+              </div>
+        </div>
+    </div>
+
+  </div>
+</div>
+<hr>
+<!-- My Existing Blogs-->
+
+<div id="newBlog" class="container-fluid padding">
+	<div class="row welcome text-center d-grid gap-2">
+		<div class="col-12">
+			<h1 class="display-4">Published Blogs</h1>
+		</div>
+	</div>
+</div>
+
+<div class="container pt-4 text-dark">
+    <div class="row">
+        <div class="col-xl-3 col-lg-4 col-md-6 blogs">
+            <div class="card w-100 shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+                <img src="{{url_for('static',filename='images/apple.jpg')}}" class="card-img-top"  >
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Read Blog</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6  blogs">
+            <div class="card w-100 shadow p-3 mb-5 bg-white rounded" >
+                <img src="{{url_for('static',filename='images/robot.jpg')}}" class="card-img-top" >
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Read Blog</a>
+                </div>
+              </div>
+        </div>
+      </div>
+</div>
+
+<br>
+
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<title>Pretty Static -{{ title }}</title>
+{% endblock %}
+
+{% block body %}
+ 
+
+{% for i in blog %}
+<ol><h2>{{i.2}}</h2>
+
+    <ul>
+        <li>Author : {{i.1}}</li>
+        <li >Content : <div class="max-lines offset mr-2">  {{i.3}} </div>..... </li> 
+        <li>Image{{i.4}}</li>
+        <li>Date Time :{{i.5}}</li>
+        <li>{{i.6}}</li>
+    </ul>
+    
+</ol>
+
+
+<div class="container shadow p-3">
+
+    <div class="container-fluid border ddiv">
+        <div class="row">
+            <!--containers-->
+            <div class="d-grid gap-2 d-flex justify-content-md-end ">
+                <a href="#" type="button">EDIT</a>
+                <a href="#" type="button">SAVE</a>
+              </div>
+            <div class="col-lg-2 col-md-12 dcolumn " > Author</div>
+            <div class="col-lg-10 col-md-10  dcontent">
+                {{i.1}}
+            </div>
+        </div>
+    </div>
+   
+    <div class="container-fluid border ddiv">
+        <div class="row">
+            <!--containers---->
+            <div class="col-lg-2 col-md-12 dcolumn "> Date and Time</div>
+            <div class="col-lg-10  col-md-10  dcontent"> 
+                {{i.5}}
+            </div>           
+        </div>
+    </div>
+    <div class="container-fluid border ddiv">
+        <div class="row">
+            <!--containers---->
+            <div class="col-lg-2 col-md-12 dcolumn "> Category</div>
+            <div class="col-lg-10  col-md-10  dcontent  ">
+                {{i.6}}
+            </div>           
+        </div>
+    </div>
+    <div class="container-fluid border ddiv">
+        <div class="row">
+            <!--containers---->
+            <div class="col-lg-2 bg-gradient  dcolumn col-md-12 "> Link</div>
+            <div class="col-lg-10  col-md-10  dcontent ">   
+                {{i.4}}
+            </div>           
+        </div>
+    </div>
+    <div class="container-fluid border ddiv">
+        <div class="row">
+            <!--containers---->
+            <div class="col-lg-2 bg-gradient dcolumn col-md-12 "> Content</div>
+            <div class="col-lg-10  col-lg-10 dcontent   "> 
+                {{i.3}}
+            </div>           
+        </div>
+    </div>
+</div>
+{% endfor %}
+<!--endfor-->
+<br>
+
+</div>
+    
+
+            
+
+
+
+{% endblock %}

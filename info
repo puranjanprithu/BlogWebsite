@@ -1,0 +1,15 @@
+
+Create procfile
+
+To create requirement file:
+pip freeze > requirements.txt
+
+Create git file:
+git init
+
+Add all things to our git:
+git add .
+
+Save/commit the git file
+git commit -am '1st commit for our app'
+

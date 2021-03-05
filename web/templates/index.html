@@ -1,0 +1,168 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<title>Pretty Static -{{ title }}</title>
+{% endblock %}
+
+
+<h1>Template</h1>
+  <!--
+    <div class="container">
+        <div class="heading">
+            <h1> {{ title }} </h1>
+
+
+            <div class="database">
+                {% for album in albums %}
+                <ol><h2>2 {{album.2}}</h2>
+                    <ul>
+                        <li>Author 1 : {{album.1}}</li>
+                        <li>About 3 : <br> album.3</li>
+                        <li>Image 4 :{{album.4}}</li>
+                        <li>Date Time 5 :{{album.5}}</li>
+                        <li>Category 6: {{album.6}}</li>
+                        <li>id :{{album.0}}</li>
+                    </ul>
+                    
+                </ol>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+<div class="blogs" >
+    <form action="blogdb.py" method="POST">
+      <div class="container-fluid shadow  p-3 mb-5 bg-body rounded  ">
+        <div class="row text-left bg-info m-2">
+            
+          <div class="col-md-6 col-lg-5 ">
+            
+            <div class="input-group mb-3 pt-3">
+              <span class="input-group-text" id="inputGroup-sizing-default"> Title : </span>
+              <input type="text" name="blogTitle"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+      
+      
+            
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Author Name : </span>
+              <input type="text" name="blogAuthor"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+        
+
+      
+            
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Image Link : </span>
+              <input type="text" name="blogImage"   class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+        
+            
+          </div>
+          <div class="col-md-6 col-lg-7 p-3">
+            
+            <div class="input-group area ">
+              
+              <span class="input-group-text">Blog Text</span>
+              <textarea class="form-control " name="blogText"   aria-label="With textarea" style="height: 100px;"></textarea>
+            </div>
+           
+        </div>
+      </div>
+      </div>
+  
+    </form>
+  
+  </div>
+-->
+
+
+{% block body %}
+<hr>
+
+<!-- My Drafted Blogs-->
+<div id="newBlog" class="container-fluid padding">
+	<div class="row welcome text-center d-grid gap-2">
+		<div class="col-12">
+			<h1 class="display-4">All Blogs</h1>
+		</div>
+	</div>
+</div>
+
+
+<!--Cards-->
+<div class="container pt-4 text-dark"  >
+    <div class="row">
+        <!--For loop-->
+        {% for album in albums %}
+            
+        <div class=" col-lg-4 col-md-6 blogs">
+            <div class="card  w-100 shadow p-2 mb-5 bg-white rounded" style="width: 18rem; height: 23rem;">
+                <!--<img src="{{url_for('static',filename='images/{album.6}.jpg')}}" class="card-img-top"  >-->
+                <div class="card-body container " >
+                    <h5 class="card-title " style="min-height: 2.5rem; max-height: 2.5rem;">{{album.2}}</h5>
+                    <i class="font-weight-bold" p-0 m-0 style="width: 100%; color: rgb(189, 43, 226);">{{album.1}}</i>
+                    
+                    <hr>
+                    <!--Accordian-->
+                  
+                
+                          <i class="col" style="width: 100%; color: rgb(11, 104, 19);">{{album.5}}</i> &nbsp;&nbsp;
+                          <i  style="width: 100%; color: rgb(226, 43, 58);">( {{album.6}} )</i>
+
+
+                        
+                      
+                    
+                  <!--AccordianEnd-->
+                  
+                   
+                    
+                  <div class="card-text min-vh-15 h-50 " > <p class="max-lines p-0">{{album.3}} </p> ...  </div> 
+
+
+                     <!-- <p class="card-text text-break" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text text-break">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>-->
+                 
+                  
+                 
+                    <div class="card-footer pb-1" style="bottom: 500px;" >
+                    <a href="/blog/{{album.0}}" >View Blog</a>
+                  </div>
+                </div>
+
+                
+              </div>
+        </div>
+        {% endfor %}
+      </div>
+</div>
+<!--CardsEnd-->
+<hr>
+
+
+
+
+{% endblock %}
+
+
+{% block footer %}
+  <!--- Connect -->
+<div id="contact" class="container-fluid padding">
+  <div class="row text-center padding">
+    <div class="col-12">
+      <h2>Connect</h2>
+    </div>
+    <div class="col-12  social padding">
+      <a href="#"> <i class="fab fa-facebook"></i></a>
+      <a href="#"> <i class="fab fa-twitter"></i></a>
+      <a href="#"> <i class="fab fa-google-plus-g"></i></a>
+      <a href="#"> <i class="fab fa-instagram"></i></a>
+      <a href="#"> <i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+  </div>
+  <br>
+{% endblock footer %}
+  

@@ -1,0 +1,60 @@
+body{
+    margin: auto;
+}
+
+.max-lines {
+    display: block;/* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 4em;
+    line-height: 1em;
+  }
+.dcolumn{
+    border: .5rem;
+    background-color: aquamarine;
+    border-width: 1em;
+   top: 20%;
+}
+.ddiv{
+    padding-top: .5rem;
+    background-color: #c1d0df;
+    color: #000;
+}
+
+
+* {
+    box-sizing: border-box;
+  }
+footer{
+    background-color:rgb(114, 101, 101);
+    color: white;
+
+    bottom:0;
+    width:100%;
+}
+
+.carousel-item{
+width: 100%;
+}
+.area{
+  height: 200px;
+}
+.input-group-text{
+  width: 8rem;
+}
+
+body{
+    color: white;
+}
+
+/*glass*/
+.container {
+
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    background: inherit;
+    overflow: hidden;
+  }

@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<title>Pretty Static -{{ title }}</title>
+{% endblock %}
+
+{% block body %}
+
+<br>
+<div  class="container-fluid p-4" style="background-image: url({{url_for('static',filename='images/body.jpg')}});">
+
+    <h1 class="bg-warning p-3"> Still need to work on this page</h1>
+    <h1 class="bg-warning p-3"> Still need to work on this page</h1>
+    <h1 class="bg-warning p-3"> Still need to work on this page</h1>
+    <h1 class="bg-warning p-3"> Still need to work on this page</h1>
+    <h1 class="bg-warning p-3"> Still need to work on this page</h1>
+    <h1 class="bg-warning p-3"> Still need to work on this page</h1>
+    
+    <form action="/forms" method="GET">
+        <input type="text" name="name" placeholder="Enter Your Name" >
+        <input type="submit">
+    </form>
+    <form action="/forms" method="POST">
+        <input type="number" name="age" placeholder="Enter Your Age" >
+        <input type="submit">
+    </form>
+</div>
+
+{% endblock %}
