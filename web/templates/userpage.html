@@ -1,0 +1,185 @@
+{% extends 'base.html'%}
+
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row pb-3">
+                <!--Content and Blog-->
+                <div class="col-lg-10 left">
+                    {% for i in blog %}
+                    <!--<ol><h2>{{i.2}}</h2>
+                    <ul>
+                        <li>Author : {{i.1}}</li>
+                        <li >Content : <div class="max-lines offset mr-2">  {{i.3}} </div>..... </li> 
+                        <li>Image{{i.4}}</li>
+                        <li>Date Time :{{i.5}}</li>
+                        <li>category:{{i.6}}</li>
+                        <li>{{i.7}}</li>
+                    </ul>-->
+                    
+                    <div class="content">
+                        <div class="header" style="background-image: url(../static/images/body.jpg); background-size: 100%; background-clip: border-box; background-repeat: space;">
+                            <h1> {{i.2}} </h1>
+                            <h2>Author : {{i.1}} </h3>
+                                <strong>Category : {{i.6}} </strong> 
+
+                            <h5>Published On : {{i.5}}</h2>
+                        </div>
+
+                        
+
+
+
+
+                        <div class="card-footer border " style="bottom: 50px; text-align: right;" >
+                            <button type="button" class="btn btn-outline-primary btn-sm">Like : 200</button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm">Comment </button>
+      
+                            <a href="/page/{{i.0}}"><button type="button" class="btn btn-outline-success btn-sm">View</button></a>
+                            <a href="/blog/{{i.0}}"><button type="button" class="btn btn-outline-danger btn-sm">Edit</button></a>
+                           
+                    
+                          
+                        </div>
+                        <div class="blog">
+
+             
+                            <br><br>
+                            
+                            {% autoescape false %}
+                            {{ i.3  | replace("\n", "<br/>") 
+                                    | replace("(h3)","<h3><i>") 
+                                    | replace("(/h3)","</i></h3>")
+                                    | replace("(h2)","<h2>")
+                                    | replace("(/h2)","</h2>")
+                            }}
+                            
+
+                            {% endautoescape %}
+                        </div>
+                        <div class="card-footer border " style="bottom: 50px; text-align: right;" >
+                            <button type="button" class="btn btn-outline-primary btn-sm">Like : 200</button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm">Comment </button>
+      
+                            <a href="/page/{{i.0}}"><button type="button" class="btn btn-outline-success btn-sm">View</button></a>
+                            <a href="/blog/{{i.0}}"><button type="button" class="btn btn-outline-danger btn-sm">Edit</button></a>
+                           
+                    
+                          
+                        </div>
+                        <div class=" row card-footer p-1 m-0 border mx-auto" style="text-align: cwnter;" >
+                            <div class="col-6">
+                                <img class="mx-auto border" width="80%"  height="150" src="https://media.giphy.com/media/l2YOp5fNAFMp63B3a/giphy.gif" alt="Cant load image, Check Internet Connection" >
+                                <br>
+                                Advertisements 1
+                            </div>
+                            <div class="col-6">
+                                <img class="mx-auto border" width="80%"  height="150" src="https://media.giphy.com/media/l2YOp5fNAFMp63B3a/giphy.gif" alt="Cant load image, Check Internet Connection" >
+                                <br>
+                                Advertisements 2
+                            </div>
+                        </div> 
+                        <div class=" row card-footer p-1 m-0 border mx-auto" style="text-align: cwnter;" >
+                            <div class="col-6">
+                                <img class="mx-auto border" width="80%"  height="150" src="https://media.giphy.com/media/l2YOp5fNAFMp63B3a/giphy.gif" alt="Cant load image, Check Internet Connection" >
+                                <br>
+                                Advertisements 3
+                            </div>
+                            <div class="col-6">
+                                <img class="mx-auto border" width="80%"  height="150" src="https://media.giphy.com/media/l2YOp5fNAFMp63B3a/giphy.gif" alt="Cant load image, Check Internet Connection" >
+                                <br>
+                                Advertisements 4
+                            </div>
+                        </div> 
+                    </div>
+                    
+                </div>
+
+                <div class="col-lg-2 col-md-12 right ">
+                    <h5>Sponsored :</h5>
+                    <hr>
+                    <div class="container-fluid">
+                        <div class="row pb-2">
+                            <a href="{{url_for('page',blogid=11)}}">
+                                <div class=" col-lg-12 col-sm-12 otherBlogs border" >
+                                    <strong>The New Market</strong> 
+                                    <br>
+                                    <p>
+                                        - By Warren Buffet <br>
+                                        2021-03-18 12:08:43
+                                    </p>
+                                </div>
+                                <div class=" row card-footer p-1 m-0  mx-auto" style="text-align: center;" >
+                                        <img class="mx-auto " width="80%"  height="50" src="https://media.giphy.com/media/l2YOp5fNAFMp63B3a/giphy.gif" alt="Cant load image" >
+                                        <br>
+                                        <i>Advertisements 0</i>
+                                </div> 
+                            </a>
+                        </div>
+
+                    </div>
+                    
+                <div class="row">
+                    <!--sort By-->
+                    <h5>Read Other Blogs :</h5>
+                    <hr>
+                    <i style="font-size: 18px;">Sort By:</i>
+                    <div class="filter " style="text-align: center;">
+                        
+                    <form action="/page/{{i.0}}" method="get">
+                        
+                            <div class="input-group m-1 p-1 " >
+                                <select class="form-select" name="Category" style="width: 2rem;" >
+                                    <option selected value="1">Title</option>
+                                    <option value="2">Date</option>
+                                    <option value="3">Author</option>
+                                </select>
+                        </div>
+                      
+                            <div class="input-group p-1 m-1 " >
+
+                                <select class="form-select" name="Order" style="width: 2rem;" >
+                                    <option selected value="0" >Ascending</option>
+                                    <option value="1" >Descending</option>
+
+                                
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="button bt-secondary bt-md"> Filter </button>
+                        </div>
+                    </form>
+                </div>
+
+                {%endfor%}
+
+                    <hr>
+                    {% for i in rightList %}
+
+                    <div class="container-fluid">
+                        <div class="row pb-2">
+                            <a href="{{url_for('page',blogid=i.0)}}">
+                                <div class=" col-lg-12 col-sm-12 otherBlogs border" >
+                        <img class="mx-auto pt-1 " width="100%"  height="50" src="{{i.4}}" alt="Cant load image, Check Internet Connection" >
+                                    <br>
+                                    <i>{{i.2}}</i> 
+                                    <br>
+                                    <p>
+                                        - By {{i.1}} <br>
+                                        {{i.5}}
+                                    </p>
+                                </div>
+                                
+                            </a>
+                        </div>
+                    </div>
+                    
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}
+    

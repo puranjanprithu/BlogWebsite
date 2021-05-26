@@ -1,0 +1,177 @@
+{% extends 'base.html'%}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+ 
+
+{% for i in blog %}
+
+<!--- Jumbotron -->
+<div id="about" class="container-fluid">
+    <div class="row jumbotron" style="background-color: #A8f29a; color: rgb(56, 56, 56); text-transform: capitalize;"> 
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+                <ol><h2>{{i.2}}</h2>
+                    <ul>
+                        <li>Author : {{i.1}}</li>
+                        <li >Content : <div class="max-lines offset mr-2">  {{i.3}} </div>..... </li> 
+                        <li>Image{{i.4}}</li>
+                        <li>Date Time :{{i.5}}</li>
+                        <li>category:{{i.6}}</li>
+                        <li>{{i.7}}</li>
+                    </ul>
+                    
+                </ol>
+            </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+            <a href="#"><button type="button" class="btn btn-outline-secondary btn-lg">Web Hosting</button></a>
+        </div>
+    </div>
+    </div>
+
+
+
+<div class="container shadow p-3">
+        
+        <div class="card-footer border " style="bottom: 50px; text-align: center;" >
+            <button type="button" class="btn btn-outline-primary btn-sm">Like : 200</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm">Comment </button>
+
+            <a href="/page/{{i.0}}"><button type="button" class="btn btn-outline-success btn-sm">View</button></a>
+            <a href="/blog/{{i.0}}"><button type="button" class="btn btn-outline-danger btn-sm">Edit</button></a>
+           
+            
+    
+          
+        </div>
+    <form action="/blog/{{val}}" method="post">
+
+        <div class="d-grid gap-2 d-flex justify-content-md-end ">
+            <div class="card-footer border " style="bottom: 50px; text-align: right; width: 100%;" >
+
+            <a href="/page/{{i.0}}"><button type="button" class="btn btn-outline-secondary btn-sm">Preview</button></a>
+            
+               
+            <input  type="submit" class="btn btn-outline-primary btn-sm" name='action' value="Update" >
+            <input  type="submit" class="btn btn-outline-danger btn-sm" name='action' value="Delete" >
+            <input  type="submit" class="btn btn-outline-success btn-sm" name='action' value="Publish" >
+             
+
+        
+              
+            </div>
+            
+
+
+          </div>
+
+<!--container Title-->
+        <div class="container-fluid border ddiv">
+            <div class="row">
+                
+                
+                <div class="col-lg-2 col-md-12 dcolumn " > <strong>Title</strong></div>
+                <div class="col-lg-10 col-md-10  ">
+                    <input class='editable' type="text" name="title" value="{{i.2}}">{{i.7}}
+                </div>
+            </div>
+        </div>
+<!--container author-->
+        <div class="container-fluid border ddiv">
+            <div class="row">
+                
+                
+                <div class="col-lg-2 col-md-12 dcolumn " > Author</div>
+                <div class="col-lg-10 col-md-10  ">
+                    <input class='editable' type="text" name="author" value="{{i.1}}">
+                </div>
+            </div>
+        </div>
+<!--containers- date/time--->
+        <div class="container-fluid border ddiv">
+            <div class="row">
+                
+                <div class="col-lg-2 col-md-12 dcolumn "> Date and Time</div>
+                <div class="col-lg-10  col-md-10  "> 
+                    <!--<input  type="text" name="date" value="">-->
+                    {{i.5}}
+                </div>           
+            </div>
+        </div>
+<!--containers-category--->
+        <div class="container-fluid border ddiv">
+            <div class="row">
+                
+                <div class="col-lg-2 col-md-12 dcolumn "> Category</div>
+                <div class="col-lg-10  col-md-10    ">
+                    {{i.6}}
+                    <!--
+                    <select class="form-select" name="category" id="inputGroupSelect02" style="max-width: min-content;">
+                        <option value="1">Health</option>
+                        <option value="2">Education</option>
+                        <option value="3">Food</option>
+                        <option value="4">Music</option>
+                        <option value="5">Lifestyle</option>
+                        <option value="6">Fitness</option>
+                      </select>  -->
+                </div> 
+
+            </div>
+        </div>
+<!--containers--Link-->
+        <div class="container-fluid border ddiv">
+            <div class="row">
+                
+                <div class="col-lg-2 bg-gradient p-1  dcolumn col-md-12 "> Link <br>
+                    
+                </div>
+                <div class="col-lg-10  col-md-10  p-1 ">   
+                    <div class="row">
+                        <div class="col-9">
+                            Add an Image Link :    https://picsum.photos/id/10/300/200 <br>
+                                     Gif Link/Sticker : From <a href="https://giphy.com/categories/">giphy.com</a>
+                                
+                            <input  type="text" name="link" style="width:100%;" value="{{i.4}}"> 
+                        </div>
+                        <div class="col-3">
+                            <img src="{{i.4}}" alt="" width="200" height="120">
+
+                        </div>
+                    </div>
+                    
+
+
+                </div>           
+            </div>
+        </div>
+<!--containers--Content-->
+        <div class="container-fluid border ddiv">
+            <div class="row">
+                
+                <div class="col-lg-2 bg-gradient dcolumn col-md-12 relative " >
+                    <strong style="position: relative;  ">Content</strong> 
+                    Blog
+                </div>
+                <div class="col-lg-10  col-lg-10 dcontent "> 
+                
+                    <textarea class="form-control " rows="28" cols="60"   name="content" aria-label="With textarea">{{i.3}}</textarea>
+                </div>           
+            </div>
+        </div>
+    
+    </form>
+</div>
+{% endfor %}
+<!--endfor-->
+<br>
+
+</div>
+    
+
+            
+
+
+
+{% endblock %}

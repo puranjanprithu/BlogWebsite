@@ -14,42 +14,43 @@ Information
 	</div>
 </div>
 <div class="blogs" >
-      <form action="/home" method="POST">
+      <form action="/home" method="POST" autocomplete="on">
     <div class="container-fluid shadow  p-3 mb-5 bg-body rounded  ">
       <div class="row text-left bg-info m-2">
         <div class="col-md-6 col-lg-5 ">
           
           <div class="input-group mb-3 pt-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Blog Title : </span>
-            <input type="text" class="form-control" name="bTitle"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <input type="text" class="form-control" name="bTitle" required aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
           </div>
 
 
           
           <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Author Name :</span>
-            <input type="text" class="form-control" name="bAuthor" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <input type="text" class="form-control" name="bAuthor" required aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
           </div>
       
       
           
+          
+            
+         
+            
           <div class="input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">Category :   </label>
-            <select class="form-select" name="bCategory" id="inputGroupSelect01">
+            <select class="form-select" name="bCategory" required id="inputGroupSelect01">
               <option selected >...</option>
-              <option value="1">Health</option>
-              <option value="2">Education</option>
-              <option value="3">Food</option>
-              <option value="4">Music</option>
-              <option value="5">Lifestyle</option>
-              <option value="6">Fitness</option>
+              {% for cat in categoriesList %}
+              <option value="{{cat.0}}">{{cat.1}}</option>
+              {% endfor %}
             </select>
           </div>
-
+          
           
           <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Image Link : </span>
-            <input type="text" class="form-control" name=bImage aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <input type="text" class="form-control" required name=bImage aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
           </div>
       
           
@@ -59,7 +60,7 @@ Information
           <div class="input-group area" style="height: 200px">
             
             <span class="input-group-text">Blog Text</span>
-            <textarea class="form-control " name="bText" aria-label="With textarea"></textarea>
+            <textarea class="form-control " name="bText"  required aria-label="With textarea"></textarea>
           </div>
           
       </div>
@@ -67,7 +68,7 @@ Information
     <div class="container-fluid ">
       <div class="row text-center mr-0 " >
         <div class=" pt-2 " style="float: right;">
-          <button type="submit" class="btn btn-success">Save Draft</button>
+          <button type="submit" onclick="alert('Saved Successfully')" class="btn btn-success">Save Draft</button>
           <button type="reset" class="btn btn-primary" >Reset</button>
         </div>
       </div>
@@ -86,26 +87,42 @@ Information
 		</div>
 	</div>
 </div>
-<div class="container pt-4 text-dark">
-  <div class="row">
-    <div class="col-xl-3 col-lg-4 col-md-6 blogs">
-        <div class="card w-1000 shadow p-3 mb-5 bg-white rounded">
-              <img class="card-img-top"  src="{{url_for('static',filename='images/Spiritual.jpg')}}" >
-              <div class="card-body">
-                 <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-warning">Edit </a>
-                  <a href="#" class="btn btn-primary">Preview </a>
-                  <a href="#" class="btn btn-success">Publish </a>
+
+
+
+<!--Cards-->
+<div class="container pt-4  text-dark bg-secondary "  >
+  <div class="row pb-2">
+      <!--For loop-->
+      {% for album in userBlogs %}
+           
+      <div class=" col-lg-4 col-md-6 ">
+          <div class="card   p-1 m-2  " style="width: 18rem; height: 22rem;">
+            <img class="card-img-top"  src="{{album.4}}" width="300" height="200" > 
+              <div class="card-body container " >
+                  <h5 class="card-title " style="min-height: 2.5rem; max-height: 2.5rem;">{{album.2}}</h5>
+                  <i class="font-weight-bold" p-0 m-0 style="width: 100%; color: rgb(189, 43, 226);">{{album.1}}</i>
+                  
+                  
+                        <i class="col" style="width: 100%; color: rgb(11, 104, 19);">{{album.5}}</i> &nbsp;&nbsp;
+                        <i  style="width: 100%; color: rgb(226, 43, 58);">( {{album.6}} )</i>
+                  <div class="card-footer pb-1" style="bottom: 50px;" >
+                  <a href="/blog/{{album.0}}" >Edit Blog</a>
+                </div>
+                
               </div>
-        </div>
+
+              
+            </div>
+      </div>
+      {% endfor %}
     </div>
-
-  </div>
 </div>
-<hr>
-<!-- My Existing Blogs-->
+<!--CardsEnd-->
+<br>
 
+<!-- My Existing Blogs-->
+<!-- My Published Blogs-->
 <div id="newBlog" class="container-fluid padding">
 	<div class="row welcome text-center d-grid gap-2">
 		<div class="col-12">
@@ -114,29 +131,33 @@ Information
 	</div>
 </div>
 
-<div class="container pt-4 text-dark">
-    <div class="row">
-        <div class="col-xl-3 col-lg-4 col-md-6 blogs">
-            <div class="card w-100 shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
-                <img src="{{url_for('static',filename='images/apple.jpg')}}" class="card-img-top"  >
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Read Blog</a>
-                </div>
+<!--Cards-->
+<div class="container pt-4  text-dark bg-success published "   >
+  <div class="row pb-2">
+      <!--For loop-->
+      {% for album in pubBlogs %}
+           
+      <div class=" col-lg-3 col-md-6 ">
+        <a href="/page/{{album.0}}" style=" text-decoration: none;">
+          <div class="card    m-2  " style="width: 18rem; ">
+            <img class="card-img-top"  src="{{album.4}}" width="300" height="180">
+              <div class="card-body container " >
+                  <h5 class="card-title " style="min-height: 2.5rem; max-height: 2.5rem;">{{album.2}}</h5><br>
+                  <i class="font-weight-bold" p-0 m-0 style="width: 100%; color: rgb(189, 43, 226);">{{album.1}}</i><br>
+                  
+                  
+                        <i class="col" style="width: 100%; color: rgb(11, 104, 19);">{{album.5}}</i> &nbsp;&nbsp;
+                        <i  style="width: 100%; color: rgb(226, 43, 58);">( {{album.6}} )</i>
+                  
+                
               </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-md-6  blogs">
-            <div class="card w-100 shadow p-3 mb-5 bg-white rounded" >
-                <img src="{{url_for('static',filename='images/robot.jpg')}}" class="card-img-top" >
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Read Blog</a>
-                </div>
-              </div>
-        </div>
+
+              
+            </div>
+            </a>
       </div>
+      {% endfor %}
+    </div>
 </div>
 
 <br>

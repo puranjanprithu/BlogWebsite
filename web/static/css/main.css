@@ -45,7 +45,7 @@ width: 100%;
 }
 
 body{
-    color: white;
+    color: rgb(15, 15, 15);
 }
 
 /*glass*/
@@ -58,3 +58,62 @@ body{
     background: inherit;
     overflow: hidden;
   }
+
+
+/*span*/
+
+.input,
+.textarea {
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: inherit;
+  
+ 
+  
+}
+
+
+
+.input-wrap {
+  position: relative;
+}
+.input-wrap .input {
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+
+.textareaSpan {
+  display: block;
+  width: 100%;
+  
+  overflow: auto;
+  resize: both;
+  min-height: 20rem;
+  line-height: 20px;
+  max-height: 45rem;
+}
+
+.textareaSpan[contenteditable]:empty::before {
+  content: "Placeholder still possible";
+  color: gray;
+}
+
+/* background*/
+.bg{
+  /*background-image: url('../images/hobbit.jpg');
+  height: 100%;
+  width: 100%;*/
+  
+}
+
+.jumbotron{
+  padding-bottom: 1rem;
+  border-radius: 0;
+  color: #ffffff  ;
+  background-color: darkgrey;
+  padding-top: 2rem;
+}
+
+

@@ -15,12 +15,26 @@
     
  
     <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
-    {% block head %}{% endblock %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/blog.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap/bootstrap-utilities.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap/bootstrap.rtl.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap/bootstrap.rtl.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap/bootstrap-grid.css')}}">
+    
+
+
+    <title>PuruBlog</title>
+
+    {% block head %}
+    {% endblock %}
 
 </head>
 <body >
 
-    <div style="background-image: url({{url_for('static',filename='images/body.jpg')}}); width: 100% ; height: 100%;">
+    
+    
 
     <nav class="navbar navbar-expand-md navbar-light bg-light " >
         <div class="container-fluid p-3 shadow  bg-white rounded" id='navbarr'>
@@ -37,11 +51,14 @@
             <li class="nav-item active">
                 <a href="{{url_for('home')}}" class="nav-link">Home</a>
             </li>
+            <li class="nav-item active">
+                <a href="{{url_for('page',blogid='11')}}" class="nav-link">Page</a>
+            </li>
             <li class="nav-item">
                 <a href="{{url_for('forms')}}" class="nav-link">Form/About</a>
             </li>
             <li class="nav-item">
-                <a href="{{url_for('posts',blogid='1')}}" class="nav-link">Posts/Services</a>
+                <a href="{{url_for('posts',blogid='11')}}" class="nav-link">Posts/Services</a>
             </li>
             
             </li>
@@ -50,16 +67,19 @@
           </div>
         </div>
       </nav>
+<div style="min-height: 283px;" >
+
 
 
 {% block carousel %}
     
 {% endblock carousel %}
-    
+
 
 
     {% block body %}{% endblock %}
-
+</div>
+<!---<img src="{{url_for('static',filename='images/hobbit.jpg')}}" alt="..." style="height: 100%; width: 100%;"> -->
     
     {% block footer %}
         
@@ -67,7 +87,7 @@
         
     
 <!--- Footer -->
-<footer>
+<footer style="bottom: 0;">
 	<div class="container-fluid padding">
 		<div class="row text-center">
 			<div class="col-md-4">
@@ -103,7 +123,17 @@
 	</div>
 </footer>
 
-</div>
 
+<!-- The core Firebase JS SDK is always required and must be listed first ->
+<script src="/__/firebase/8.3.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries ->
+<script src="/__/firebase/8.3.0/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase ->
+<script src="/__/firebase/init.js"></script>
+
+-->
 </body>
 </html>

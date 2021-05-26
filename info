@@ -1,15 +1,30 @@
+pip install gunicorn
 
 Create procfile
+web: gunicorn app:run
 
 To create requirement file:
-pip freeze > requirements.txt
+    pip freeze > requirements.txt
 
 Create git file:
-git init
+    git init
 
 Add all things to our git:
-git add .
+    git add .
 
 Save/commit the git file
-git commit -am '1st commit for our app'
+    git commit -am '1st commit for our app'
 
+#heroku cli
+
+to login to heroku
+    heroku login
+
+Create the app
+    heroku create
+
+rename app
+heroku rename <websitename>
+
+push my file to heroku
+git push heroku master

@@ -7,23 +7,134 @@
 {% block body %}
 
 <br>
-<div  class="container-fluid p-4" style="background-image: url({{url_for('static',filename='images/body.jpg')}});">
+<div  class="container-fluid p-4" >
 
-    <h1 class="bg-warning p-3"> Still need to work on this page</h1>
-    <h1 class="bg-warning p-3"> Still need to work on this page</h1>
-    <h1 class="bg-warning p-3"> Still need to work on this page</h1>
-    <h1 class="bg-warning p-3"> Still need to work on this page</h1>
-    <h1 class="bg-warning p-3"> Still need to work on this page</h1>
-    <h1 class="bg-warning p-3"> Still need to work on this page</h1>
     
-    <form action="/forms" method="GET">
+    
+    <form action="/forms" method="get">
         <input type="text" name="name" placeholder="Enter Your Name" >
         <input type="submit">
+        
     </form>
     <form action="/forms" method="POST">
         <input type="number" name="age" placeholder="Enter Your Age" >
-        <input type="submit">
+        
+        <input type="submit" name="action" value="Update" />
+        <input type="submit" name="action" value="Delete" />
     </form>
 </div>
+<!--
+<div class="container-fluid">
+    <iframe width="500" height="300" src="https://www.youtube.com/embed/8TejORx4BQA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+</div>-->
+
+<div class="container-fluid">
+    <div class="row">
+        
+    </div>
+</div>
+
+
+
+<div class="container-fluid p-3 m-3 mr-3">
+    <div class="row p-2">
+        <div class="col-lg-2 border">
+            <div class="pt-2 pb-0">Data Structures :</div> 
+            <hr>
+            {% for i in dsList %}
+
+            <ul>
+                <li><a style="text-transform: capitalize;" href="#{{i.0}}">{{i.1}}</a></li>
+            </ul>
+            {% endfor %}
+            
+        </div>
+
+        <div class="col-lg-10 m-9">
+
+            <div class="row p-3 border mx-auto" style="align-content: center;" >
+                <table style="width: 100%" class="p-2 ">
+                    <br>
+                    <form action="/forms"  method="POST">
+                        <tr >
+                            <td></td>
+                            <td></td>
+                            <td colspan="2">
+                                <input type="text" style="width: 100%; " name="dsa_name" placeholder="Enter Topic Name">
+                            </td>
+                            <td >
+                                <input type="submit" class=" m-1 btn btn-outline-success  " name="action" value="Insert" />
+                            </td>
+                                
+                            
+                        </tr>
+                    </form>
+                        
+                    
+                    
+                    <Tr class="border">
+                        <Th> Topic ID </Th>
+                        <Th> Topic Name </Th>
+                        <Th> Easy Questions </Th>
+                        <Th> Medium Questions </Th>
+                        <Th> Hard Questions </Th>
+                        <th>Action</th>
+        
+                    </Tr>
+                    {% for i in dsList %}
+                    <form action="/forms"  method="POST">
+                    
+                    <tr id="{{i.0}}"  style="transition: ease-in-out;" >
+                        
+                        <td style="width: 8%;" > 
+                            # <input  name="ds_id"  value="{{i.0}}" style=" cursor: pointer; width: 80%; border: unset;" >
+                        </td>
+
+                            <td style="text-transform: capitalize;">{{i.1}} {{i.2,i.3,i.4}}</td>
+                            <td><input type="number" name="ds_easy" class="  btn btn-outline-secondary" value="{{i.2}}" ></td>
+                            <td><input type="number" name="ds_medium" class="p-1 btn btn-outline-secondary" value="{{i.3}}" ></td>
+                            <td><input type="number" name="ds_hard" class="p-1 btn btn-outline-secondary" value="{{i.4}}" ></td>
+                        
+                        <td><input type="submit" class="btn btn-outline-primary  " name="action" value="Update" /></td>
+                    </tr>
+                </form>
+
+                    {% endfor %}
+                </table>
+                <br>
+                <hr>
+                <div>
+                    <div class="row p-2">
+                        <div class="col">
+                            Easy : 
+                        </div>
+                        <div class="col">
+                            Medium : 
+                        </div>
+                        <div class="col">
+                            Hard : 
+                        </div>
+                        <div class="col">
+                            Total : 
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+            </div>
+            
+
+           
+            
+        </div>
+        
+        
+
+    </div>
+</div>
+
+
+
 
 {% endblock %}

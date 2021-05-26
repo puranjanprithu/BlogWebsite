@@ -1,0 +1,125 @@
+.left{
+    
+}
+.content{
+
+    text-align: center;
+    
+}
+.content .header{
+    background-color: tomato;
+    text-transform: capitalize;
+    color: rgb(252, 224, 176);
+    padding : 2rem;
+}
+.content .blog{
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eddd6e;
+    padding: 2rem;
+}
+
+h2,h3{
+    padding-bottom: 0;
+}
+.blog h3{
+    text-align: center;
+    background-color: #84a1ff;
+    text-rendering: geometricPrecision;
+    padding: 1rem;
+    
+
+    
+}
+.blog h2{
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: underline;
+    padding-bottom: 0;
+    
+}
+
+
+
+
+.right{
+    background-color: rgb(100, 82, 82);
+    color: wheat;
+   
+    right: 1px;
+    bottom: 2px;
+    top:0px;
+    width: 40px;
+    min-height: fit-content;
+    
+    padding: 3px 10px;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.otherBlogs:hover{
+    background-color: rosybrown;
+    padding:1 1em;
+    
+    padding-inline-end: 2em;
+    border:  rgb(255, 255, 255) 3px ;
+}
+.otherBlogs{
+    background-color: rgba(100, 82, 82, 0.267);
+    padding:0 1em;
+    text-decoration-skip: space;
+    text-transform: capitalize;
+    color: seashell;
+    background-color: #333;
+    
+}
+.otherBlogs p{
+    font-size: .8rem;
+    text-align: right;
+}
+.right a{
+    color: unset;
+    text-decoration: unset;
+    padding: 0;
+}
+.scrollmenu {
+    background-color: #333;
+
+    
+  }
+
+  .scrollmenu > .blogs1 {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    display: inline-block; 
+             
+  }
+
+  .right .container-fluid{
+     
+  }
+
+
+
+
+  /**/
+
+  .published a{
+        
+  }
+
+  .editable{
+      width: 100%;
+  }
+
+
+
+ 
+  table {
+    border-spacing: 5px;
+  }
+  

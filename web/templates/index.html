@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 
 {% block head %}
-<title>Pretty Static -{{ title }}</title>
+<title>Blog Web-{{ title }}</title>
 {% endblock %}
 
 
@@ -92,44 +92,48 @@
 
 
 <!--Cards-->
-<div class="container pt-4 text-dark"  >
+<div class="container  text-dark bg-secondary "  >
     <div class="row">
         <!--For loop-->
         {% for album in albums %}
-            
-        <div class=" col-lg-4 col-md-6 blogs">
-            <div class="card  w-100 shadow p-2 mb-5 bg-white rounded" style="width: 18rem; height: 23rem;">
-                <!--<img src="{{url_for('static',filename='images/{album.6}.jpg')}}" class="card-img-top"  >-->
+             
+        <div class=" col-lg-4 col-md-6 col-xl-3 blogs p-3 ">
+            <div class="card  w-100 p-1  bg-white rounded" style="min-width: 16rem; ">
+              <img class="card-img-top " width="300" height="200" src="{{album.4}}" alt="Cant load image, Check Internet Connection" >
+              
                 <div class="card-body container " >
-                    <h5 class="card-title " style="min-height: 2.5rem; max-height: 2.5rem;">{{album.2}}</h5>
+              <Strong class="card-title " style="min-height: 2.5rem; max-height: 2.5rem;">{{album.2}}</Strong> <br>
+
                     <i class="font-weight-bold" p-0 m-0 style="width: 100%; color: rgb(189, 43, 226);">{{album.1}}</i>
                     
                     <hr>
-                    <!--Accordian-->
+                    <!--Accordian
+                    {{url_for('static',filename='images/spiritual.jpg')}}
+                    -->
                   
                 
-                          <i class="col" style="width: 100%; color: rgb(11, 104, 19);">{{album.5}}</i> &nbsp;&nbsp;
-                          <i  style="width: 100%; color: rgb(226, 43, 58);">( {{album.6}} )</i>
-
-
-                        
-                      
-                    
-                  <!--AccordianEnd-->
-                  
-                   
-                    
-                  <div class="card-text min-vh-15 h-50 " > <p class="max-lines p-0">{{album.3}} </p> ...  </div> 
+                          <i class="col" style="width: 100%; color: rgb(11, 104, 19);">{{album.5}}</i><br>
+                          <i  style="width: 100%; color: rgb(226, 43, 58);">( {{album.6}} )</i> <br>
+                          Some quick example text to build on the card title and make up the bulk of the card's content.
+                  <!--AccordianEnd
+ 
+                  <div class="card-text min-vh-15 h-20s " > <p class="max-lines">{{album.3}} </p> ...  </div> -->
 
 
                      <!-- <p class="card-text text-break" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <p class="card-text text-break">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>-->
                  
-                  
+                      
                  
-                    <div class="card-footer pb-1" style="bottom: 500px;" >
-                    <a href="/blog/{{album.0}}" >View Blog</a>
+                    <div class="card-footer border grid-p-1 " style="bottom: 50px; text-align: right;" >
+                      <button type="button" class="btn btn-outline-primary p-1 btn-sm">Likes : {{album.7}} </button>
+                      <button type="button" class="btn btn-outline-secondary p-1 mx-auto btn-sm">Comment </button>
+                      <a href="/page/{{album.0}}"><button type="button" class="btn btn-outline-success p-1 btn-sm">View</button></a>
+                     
+              
+                    
                   </div>
+                  
                 </div>
 
                 
@@ -141,6 +145,50 @@
 <!--CardsEnd-->
 <hr>
 
+<button type="button" class="btn btn-sm btn-primary pull-right" data-toggle="modal" data-target="#productModal">
+  Add New Product
+</button>
+       
+<!--Create ProductModal -->
+<div class="modal fade-scale" id="productModal" role="dialog" data-backdrop="static">
+  <div class="modal-dialog ">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Add New Product</h4>
+          </div>
+          <div class="modal-body">
+              <form id="productForm">
+                  <input type="hidden" name="id" id="id" value="0">
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <div class="form-group">
+                              <label >Name</label>
+                              <input class="form-control" placeholder="Name" name="name" id="name" type="text" value="">
+                          </div>
+                      </div>
+                      <div class="col-sm-12">
+                          <div class="form-group">
+                              <label >Unit</label>
+                              <select name="uoms" id="uoms" class="form-control">
+                              </select>
+                          </div>
+                      </div>
+                      <div class="col-sm-12">
+                          <div class="form-group">
+                              <label >Price Per Unit</label>
+                              <input class="form-control" placeholder="Price Per Unit" name="price" id="price" type="text" value="">
+                          </div>
+                      </div>
+                  </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="saveProduct">Save</button>
+          </div>
+      </div>
+  </div>
+</div>
 
 
 
